@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notebook</title>
+    <link href="style.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>Notebook</h1>
+    </header>
+    <main>
+        <section class="new-note">
+            <form>
+                <input placeholder="Title" id="title-input" type="text">
+                <textarea rows="4" placeholder="Note body" id="body-input"
+                    oninput="this.style.height='';this.style.height=this.scrollHeight+'px'"></textarea>
+                <button class="save-button">Save</button>
+            </form>
+        </section>
+        <section class="note-display">
+            <ul id="notes-list"></ul>
+        </section>
+    </main>
+    <script src="dist/main.js"></script>
+</body>
+</html>

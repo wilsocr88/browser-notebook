@@ -1,0 +1,111 @@
+* {
+    font-family: monospace;
+}
+
+body {
+    margin: 0 auto;
+    max-width: 61rem;
+}
+
+header,
+footer {
+    background-color: #008080;
+    color: #fff;
+    padding: 0 20px;
+}
+
+form {
+    position: relative;
+}
+
+input,
+textarea {
+    outline: none !important;
+    overflow-y: hidden;
+    resize: none;
+    background-color: transparent;
+}
+
+input:focus-within,
+textarea:focus-within {
+    background-color: #ccc !important;
+}
+
+h1 {
+    margin: 0;
+}
+
+ul {
+    list-style-type: none;
+}
+
+li {
+    padding: 1rem 2rem;
+    box-shadow: 0 0 0.125rem;
+    position: relative;
+}
+
+p {
+    white-space: pre-wrap;
+}
+
+/* ids */
+#title-input {
+    display: block;
+    margin: 0;
+    width: 100%;
+    padding: 1rem;
+    border: 1rem;
+    box-sizing: border-box;
+}
+
+#body-input {
+    display: block;
+    margin: 0;
+    width: 100%;
+    padding: 1rem;
+    padding-bottom: 3.5rem;
+    border: 0;
+    background-color: transparent;
+    box-sizing: border-box;
+}
+
+#notes-list {
+    padding: 0;
+    margin: 0;
+}
+
+/* classes */
+.new-note {
+    background: #ddd;
+}
+
+.save-button {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: 1rem 1rem;
+    border: 0;
+    background-color: #008080;
+    color: #fff;
+    cursor: pointer;
+}
+
+.delete-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0.5rem 1rem;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+}
+
+.delete-button:hover {
+    background-color: #900;
+    color: #fff;
+}
+
+.notes-list {
+    padding: 0 !important;
+}

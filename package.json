@@ -1,0 +1,16 @@
+{
+  "name": "browser-notebook",
+  "version": "0.0.1",
+  "description": "Browser notebook",
+  "main": "index.js",
+  "scripts": {
+    "build": "npx webpack"
+  },
+  "author": "Craig Wilson <wilsocr88@gmail.com>",
+  "license": "UNLICENSED",
+  "private": "true",
+  "devDependencies": {
+    "webpack": "^5.88.2",
+    "webpack-cli": "^5.1.4"
+  }
+}
