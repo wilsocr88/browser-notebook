@@ -13,7 +13,7 @@ openRequest.addEventListener("error", () =>
 
 // success handler signifies that the database opened successfully
 openRequest.addEventListener("success", () => {
-    console.log("Database opened successfully");
+    //console.log("Database opened successfully");
 
     // Store the opened database object in the db variable. This is used a lot below
     db = openRequest.result;
@@ -38,5 +38,5 @@ openRequest.addEventListener("upgradeneeded", e => {
     objectStore.createIndex("title", "title", { unique: false });
     objectStore.createIndex("body", "body", { unique: false });
 
-    console.log("Database setup complete");
+    //console.log("Database setup complete");
 });

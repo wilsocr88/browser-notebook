@@ -17,7 +17,7 @@ export default function deleteItem(e) {
         // delete the parent of the button
         // which is the list item, so it is no longer displayed
         e.target.parentNode.parentNode.removeChild(e.target.parentNode);
-        console.log(`Note ${noteId} deleted.`);
+        //console.log(`Note ${noteId} deleted.`);
 
         // Again, if list item is empty, display a 'No notes stored' message
         if (!list.firstChild) {

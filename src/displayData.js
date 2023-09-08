@@ -1,6 +1,16 @@
 import { db } from "./db";
-import { list } from "./common";
+import { $, list } from "./common";
 import deleteItem from "./deleteItem";
+
+function download(url, name) {
+    var link = document.createElement("a");
+    link.download = name;
+    link.href = url;
+    $("body").appendChild(link);
+    link.click();
+    $("body").removeChild(link);
+    //delete link;
+}
 
 export default function displayData() {
     // Here we empty the contents of the list element each time the display is updated
@@ -12,12 +22,14 @@ export default function displayData() {
     // Open our object store and then get a cursor - which iterates through all the
     // different data items in the store
     const objectStore = db.transaction("notes_os").objectStore("notes_os");
+    var data = [];
     objectStore.openCursor().addEventListener("success", e => {
         // Get a reference to the cursor
         const cursor = e.target.result;
 
         // If there is still another data item to iterate through, keep running this code
         if (cursor) {
+            data.push(cursor.value);
             // Create a list item, h3, and p to put each data item inside when displaying it
             // structure the HTML fragment, and append it inside the list
             const listItem = document.createElement("li");
@@ -56,7 +68,10 @@ export default function displayData() {
                 list.appendChild(listItem);
             }
             // if there are no more cursor items to iterate through, say so
-            console.log("Notes all displayed");
+            //console.log("Notes all displayed");
         }
+        const dataString = JSON.stringify(data);
+        $("#download-link").onclick = () =>
+            download("data:application/json," + dataString, "notes.json");
     });
 }

@@ -75,6 +75,11 @@ p {
     margin: 0;
 }
 
+#download-link {
+    color: white;
+    text-decoration: underline;
+}
+
 /* classes */
 .new-note {
     background: #ddd;
