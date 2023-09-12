@@ -5,7 +5,7 @@ export default function deleteItem(e) {
     // retrieve the name of the task we want to delete. We need
     // to convert it to a number before trying to use it with IDB; IDB key
     // values are type-sensitive.
-    const noteId = Number(e.target.parentNode.getAttribute("data-note-id"));
+    const noteId = Number(e.target.parentNode.id);
 
     // open a database transaction and delete the task, finding it using the id we retrieved above
     const transaction = db.transaction(["notes_os"], "readwrite");
@@ -19,10 +19,10 @@ export default function deleteItem(e) {
         e.target.parentNode.parentNode.removeChild(e.target.parentNode);
         //console.log(`Note ${noteId} deleted.`);
 
-        // Again, if list item is empty, display a 'No notes stored' message
+        // Again, if list item is empty, display a 'No notes' message
         if (!list.firstChild) {
             const listItem = document.createElement("li");
-            listItem.textContent = "No notes stored.";
+            listItem.textContent = "No notes yet";
             list.appendChild(listItem);
         }
     });

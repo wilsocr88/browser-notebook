@@ -36,6 +36,7 @@ export default function displayData() {
             const h3 = document.createElement("h3");
             const para = document.createElement("p");
 
+            listItem.id = cursor.primaryKey;
             if (cursor.value.title.trim() !== "") listItem.appendChild(h3);
             listItem.appendChild(para);
             list.appendChild(listItem);
@@ -44,19 +45,30 @@ export default function displayData() {
             h3.textContent = cursor.value.title;
             para.textContent = cursor.value.body;
 
-            // Store the ID of the data item inside an attribute on the listItem, so we know
-            // which item it corresponds to. This will be useful later when we want to delete items
-            listItem.setAttribute("data-note-id", cursor.value.id);
-
             // Create a button and place it inside each listItem
             const deleteBtn = document.createElement("button");
             listItem.appendChild(deleteBtn);
             deleteBtn.textContent = "x";
             deleteBtn.className = "delete-button";
-
-            // Set an event handler so that when the button is clicked, the deleteItem()
-            // function is run
             deleteBtn.addEventListener("click", deleteItem);
+
+            const editBtn = document.createElement("button");
+            listItem.appendChild(editBtn);
+            editBtn.textContent = "edit";
+            editBtn.className = "edit-button";
+            editBtn.addEventListener("click", e => {
+                const item = e.target.parentNode;
+                const id = item.id;
+                const request = db
+                    .transaction("notes_os")
+                    .objectStore("notes_os")
+                    .get(Number.parseInt(key));
+                request.onsuccess = () => {
+                    const record = request.result;
+                    // populate fields for editing
+                    // add button to save record
+                };
+            });
 
             // Iterate to the next item in the cursor
             cursor.continue();
