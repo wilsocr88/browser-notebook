@@ -1,6 +1,7 @@
 import { db } from "./db";
 import { list } from "./common";
 import displayData from "./displayData";
+import { strings } from "./strings";
 
 export default function deleteItem(e) {
     const noteId = Number(e.target.parentNode.id);
@@ -13,7 +14,7 @@ export default function deleteItem(e) {
 
         if (!list.firstChild) {
             const listItem = document.createElement("li");
-            listItem.textContent = "No notes yet";
+            listItem.textContent = strings.noNotes;
             list.appendChild(listItem);
         }
         displayData();

@@ -2,6 +2,8 @@ import { db } from "./db";
 import { $, list } from "./common";
 import deleteItem from "./deleteItem";
 import editItem from "./editItem";
+import { strings } from "./strings";
+import importData from "./importData";
 
 const newNode = el => document.createElement(el);
 
@@ -71,13 +73,13 @@ export default function displayData() {
                     const titleField = newNode("input");
                     titleField.value = record.title;
                     titleField.className = "title-input";
-                    titleField.placeholder = "Title (optional)";
+                    titleField.placeholder = strings.titlePlaceholder;
 
                     const bodyField = newNode("textarea");
                     bodyField.textContent = record.body;
                     bodyField.className = "body-input";
                     bodyField.style = "overflow-y:scroll";
-                    bodyField.placeholder = "Note body";
+                    bodyField.placeholder = strings.bodyPlaceholder;
 
                     const saveButton = newNode("button");
                     saveButton.textContent = "Save";
@@ -97,19 +99,62 @@ export default function displayData() {
             // Again, if list item is empty, display a 'No notes stored' message
             if (!list.firstChild) {
                 const listItem = newNode("li");
-                listItem.textContent = "No notes yet";
+                listItem.textContent = strings.noNotes;
                 list.appendChild(listItem);
             }
-            // if there are no more cursor items to iterate through, say so
-            //console.log("Notes all displayed");
         }
+
+        const fileOptions = {
+            suggestedName: "mynotes.json",
+            types: [
+                {
+                    description: strings.appName + " Files",
+                    accept: { "application/json": [".json"] },
+                },
+            ],
+        };
+        // download link
         if (data.length > 0) {
             const dataString = JSON.stringify(data);
             $("#download-link").style = "display:inline";
-            $("#download-link").onclick = () =>
-                download("data:application/json," + dataString, "notes.json");
+
+            if (typeof window.showSaveFilePicker !== "undefined") {
+                $("#download-link").onclick = () =>
+                    window.showSaveFilePicker(fileOptions).then(f =>
+                        f.createWritable().then(async w => {
+                            await w.write(dataString);
+                            await w.close();
+                        })
+                    );
+            } else {
+                $("#download-link").onclick = () =>
+                    download(
+                        "data:application/json," + dataString,
+                        "notes.json"
+                    );
+            }
         } else {
             $("#download-link").style = "display:none";
         }
+
+        // upload link
+        if (typeof window.showOpenFilePicker !== "undefined") {
+            $("#upload-link").innerText = strings.uploadLink;
+            $("#upload-link").onclick = async () => {
+                const [handle] = await window.showOpenFilePicker(fileOptions);
+                const file = await handle.getFile();
+                const text = await file.text();
+                importData(text);
+            };
+        } else {
+            $("#upload-link").style = "display:none";
+        }
+
+        // app strings
+        $("#title-input").placeholder = strings.titlePlaceholder;
+        $("#body-input").placeholder = strings.bodyPlaceholder;
+        $("#app-name").innerText = strings.appName;
+        document.querySelector("title").innerText = strings.appName;
+        $("#download-link").innerText = strings.downloadLink;
     });
 }

@@ -3,18 +3,22 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Notebook</title>
+    <title></title>
     <link href="style.css" rel="stylesheet">
 </head>
 <body>
     <header>
-        <h1>Notebook</h1>
+        <h1 id="app-name"></h1>
     </header>
+    <footer>
+        <a id="download-link" href="#"></a>
+        <a id="upload-link" href="#"></a>
+    </footer>
     <main>
         <section class="new-note">
             <form id="new-note-form">
-                <input placeholder="Title (optional)" id="title-input" class="title-input" type="text">
-                <textarea rows="4" placeholder="Note body" id="body-input" class="body-input"
+                <input id="title-input" class="title-input" type="text">
+                <textarea rows="4" id="body-input" class="body-input"
                     oninput="this.style.height='';this.style.height=this.scrollHeight+'px'"></textarea>
                 <button id="save-button" class="save-button">Save</button>
             </form>
@@ -23,9 +27,6 @@
             <ul id="notes-list"></ul>
         </section>
     </main>
-    <footer>
-        <a id="download-link" href="#">Download JSON</a>
-    </footer>
     <script src="dist/main.js"></script>
 </body>
 </html>

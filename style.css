@@ -40,6 +40,14 @@ footer {
     padding: 0 20px;
 }
 
+footer {
+    padding: 0.5rem 1rem;
+}
+
+footer>a {
+    padding-right: 0.5rem;
+}
+
 form {
     position: relative;
 }
@@ -81,7 +89,8 @@ p {
     margin: 0;
 }
 
-#download-link {
+#download-link,
+#upload-link {
     color: #fff;
     text-decoration: underline;
 }
