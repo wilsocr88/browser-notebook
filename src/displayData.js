@@ -50,7 +50,7 @@ export default function displayData() {
             // Create a button and place it inside each listItem
             const deleteBtn = newNode("button");
             listItem.appendChild(deleteBtn);
-            deleteBtn.textContent = "x";
+            deleteBtn.textContent = "delete";
             deleteBtn.className = "delete-button";
             deleteBtn.addEventListener("click", deleteItem);
 
@@ -76,7 +76,7 @@ export default function displayData() {
                     const bodyField = newNode("textarea");
                     bodyField.textContent = record.body;
                     bodyField.className = "body-input";
-                    bodyField.style = "border:1px solid #000";
+                    bodyField.style = "overflow-y:scroll";
                     bodyField.placeholder = "Note body";
 
                     const saveButton = newNode("button");
