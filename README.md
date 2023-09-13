@@ -1,13 +1,19 @@
-# Browser Notebook
-A Browser Notebook using the IndexedDB API
+# Notebook
+An in-browser, frontend-only, plaintext notebook using the IndexedDB API. Persistent local-only storage plus import/export (in compatible browsers).
+  
+[Try the demo](https://misterdizzy.neocities.org/projects/notebook/)
+
+## Build Requirements
+- NodeJS
+- NPM 
 
 ## Usage
-First run
+Install build dependencies
 `npm install --only=dev`
 
-Then run
+Build
 `npx webpack`
 or
 `npm run build`
 
-And open `index.html`
+Then open `index.html`
