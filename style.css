@@ -1,16 +1,42 @@
+:root {
+    --main-color: #008080;
+    --bg-color: #fff;
+    --inact: #ddd;
+    --act: #ccc;
+    --text: #000;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --main-color: #008080;
+        --bg-color: #000;
+        --inact: #444;
+        --act: #333;
+        --text: #fff;
+    }
+
+    body {
+        background-color: var(--bg-color);
+    }
+
+    * {
+        color: var(--text);
+    }
+}
+
 * {
     font-family: monospace;
 }
 
 body {
     margin: 0 auto;
-    max-width: 61rem;
+    max-width: 800px;
 }
 
 header,
 footer {
-    background-color: #008080;
-    color: #fff;
+    background-color: var(--main-color);
+    color: var(--bg-color);
     padding: 0 20px;
 }
 
@@ -28,7 +54,7 @@ textarea {
 
 input:focus-within,
 textarea:focus-within {
-    background-color: #ccc !important;
+    background-color: var(--act) !important;
 }
 
 h1 {
@@ -56,7 +82,7 @@ p {
 }
 
 #download-link {
-    color: white;
+    color: #fff;
     text-decoration: underline;
 }
 
@@ -82,7 +108,7 @@ p {
 }
 
 .new-note {
-    background: #ddd;
+    background: var(--inact);
 }
 
 .save-button,
@@ -92,7 +118,7 @@ p {
     right: 0;
     padding: 1rem 1rem;
     border: 0;
-    background-color: #008080;
+    background-color: var(--main-color);
     color: #fff;
     cursor: pointer;
 }
@@ -115,7 +141,7 @@ p {
 .edit-button {
     position: absolute;
     top: 0;
-    right: 33px;
+    right: 68px;
     padding: 0.5rem 1rem;
     border: none;
     background: transparent;
@@ -123,7 +149,7 @@ p {
 }
 
 .edit-button:hover {
-    background-color: #008080;
+    background-color: var(--main-color);
     color: #fff;
 }
 
