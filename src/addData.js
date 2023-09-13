@@ -11,16 +11,12 @@ export default function addData(e) {
     const objectStore = transaction.objectStore("notes_os");
     const addRequest = objectStore.add(newItem);
 
-    addRequest.addEventListener("success", () => {
+    addRequest.onsuccess = () => {
         titleInput.value = "";
         bodyInput.value = "";
         bodyInput.style.height = "unset";
-    });
+    };
 
     // Report on the success of the transaction completing, when everything is done
-    transaction.addEventListener("complete", displayData);
-
-    transaction.addEventListener("error", () =>
-        console.log("Transaction not opened due to error")
-    );
+    transaction.oncomplete = displayData;
 }

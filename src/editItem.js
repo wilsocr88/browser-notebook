@@ -17,12 +17,8 @@ export default function editItem(e) {
     const objectStore = transaction.objectStore("notes_os");
     const addRequest = objectStore.put(newItem);
 
-    //addRequest.addEventListener("success", e => console.log(e));
+    addRequest.onsuccess = e => console.log(e);
 
     // Report on the success of the transaction completing, when everything is done
-    transaction.addEventListener("complete", displayData);
-
-    transaction.addEventListener("error", () =>
-        console.log("Transaction not opened due to error")
-    );
+    transaction.oncomplete = displayData;
 }

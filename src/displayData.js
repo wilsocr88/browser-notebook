@@ -27,7 +27,7 @@ export default function displayData() {
     // different data items in the store
     const objectStore = db.transaction("notes_os").objectStore("notes_os");
     var data = [];
-    objectStore.openCursor().addEventListener("success", e => {
+    objectStore.openCursor().onsuccess = e => {
         // Get a reference to the cursor
         const cursor = e.target.result;
 
@@ -54,13 +54,13 @@ export default function displayData() {
             listItem.appendChild(deleteBtn);
             deleteBtn.textContent = "delete";
             deleteBtn.className = "delete-button";
-            deleteBtn.addEventListener("click", deleteItem);
+            deleteBtn.onclick = deleteItem;
 
             const editBtn = newNode("button");
             listItem.appendChild(editBtn);
             editBtn.textContent = "edit";
             editBtn.className = "edit-button";
-            editBtn.addEventListener("click", e => {
+            editBtn.onclick = e => {
                 const item = e.target.parentNode;
                 const id = item.id;
                 const request = db
@@ -91,7 +91,7 @@ export default function displayData() {
                     listItem.appendChild(bodyField);
                     listItem.appendChild(saveButton);
                 };
-            });
+            };
 
             // Iterate to the next item in the cursor
             cursor.continue();
@@ -156,5 +156,5 @@ export default function displayData() {
         $("#app-name").innerText = strings.appName;
         document.querySelector("title").innerText = strings.appName;
         $("#download-link").innerText = strings.downloadLink;
-    });
+    };
 }

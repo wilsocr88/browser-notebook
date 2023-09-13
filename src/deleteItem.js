@@ -8,7 +8,7 @@ export default function deleteItem(e) {
     const transaction = db.transaction(["notes_os"], "readwrite");
     const objectStore = transaction.objectStore("notes_os");
     objectStore.delete(noteId);
-    transaction.addEventListener("complete", () => {
+    transaction.oncomplete = () => {
         // delete the list item
         e.target.parentNode.parentNode.removeChild(e.target.parentNode);
 
@@ -18,5 +18,5 @@ export default function deleteItem(e) {
             list.appendChild(listItem);
         }
         displayData();
-    });
+    };
 }
