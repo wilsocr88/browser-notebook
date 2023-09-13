@@ -50,26 +50,6 @@ p {
 }
 
 /* ids */
-#title-input {
-    display: block;
-    margin: 0;
-    width: 100%;
-    padding: 1rem;
-    border: 1rem;
-    box-sizing: border-box;
-}
-
-#body-input {
-    display: block;
-    margin: 0;
-    width: 100%;
-    padding: 1rem;
-    padding-bottom: 3.5rem;
-    border: 0;
-    background-color: transparent;
-    box-sizing: border-box;
-}
-
 #notes-list {
     padding: 0;
     margin: 0;
@@ -81,11 +61,32 @@ p {
 }
 
 /* classes */
+.title-input {
+    display: block;
+    margin: 0;
+    width: 100%;
+    padding: 1rem;
+    border: 1rem;
+    box-sizing: border-box;
+}
+
+.body-input {
+    display: block;
+    margin: 0;
+    width: 100%;
+    padding: 1rem;
+    padding-bottom: 3.5rem;
+    border: 0;
+    background-color: transparent;
+    box-sizing: border-box;
+}
+
 .new-note {
     background: #ddd;
 }
 
-.save-button {
+.save-button,
+.save-edit-button {
     position: absolute;
     bottom: 0;
     right: 0;
@@ -108,6 +109,21 @@ p {
 
 .delete-button:hover {
     background-color: #900;
+    color: #fff;
+}
+
+.edit-button {
+    position: absolute;
+    top: 0;
+    right: 33px;
+    padding: 0.5rem 1rem;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+}
+
+.edit-button:hover {
+    background-color: #008080;
     color: #fff;
 }
 

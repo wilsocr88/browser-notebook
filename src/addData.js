@@ -18,12 +18,7 @@ export default function addData(e) {
     });
 
     // Report on the success of the transaction completing, when everything is done
-    transaction.addEventListener("complete", () => {
-        //console.log("Transaction completed: database modification finished.");
-
-        // update the display of data to show the newly added item, by running displayData() again.
-        displayData();
-    });
+    transaction.addEventListener("complete", displayData);
 
     transaction.addEventListener("error", () =>
         console.log("Transaction not opened due to error")
