@@ -1,7 +1,7 @@
 {
-  "name": "browser-notebook",
+  "name": "notebook",
   "version": "0.1.0",
-  "description": "Browser notebook",
+  "description": "An in-browser plaintext notebook based on IndexedDB",
   "main": "index.js",
   "scripts": {
     "build": "npx webpack"
