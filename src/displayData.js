@@ -105,11 +105,11 @@ export default function displayData() {
         }
 
         const fileOptions = {
-            suggestedName: "mynotes.json",
+            suggestedName: "mynotes.notes",
             types: [
                 {
                     description: strings.appName + " Files",
-                    accept: { "application/json": [".json"] },
+                    accept: { "application/notes": [".notes"] },
                 },
             ],
         };
