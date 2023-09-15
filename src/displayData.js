@@ -144,5 +144,6 @@ export default function displayData() {
         $("#app-name").innerText = strings.appName;
         document.querySelector("title").innerText = strings.appName;
         $("#download-link").innerText = strings.downloadLink;
+        $("#are-you-sure").innerText = strings.areYouSure;
     };
 }
