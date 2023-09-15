@@ -6,6 +6,27 @@
     --text: #000;
 }
 
+:modal {
+    background-color: var(--bg-color);
+    color: var(--text);
+}
+
+:modal>form>button {
+    background: transparent;
+    border: none;
+    padding: 0.5rem 1rem;
+}
+
+:modal>form>button:hover {
+    background-color: var(--main-color);
+    cursor: pointer;
+    color: #fff;
+}
+
+#modal-delete:hover {
+    background-color: #900;
+}
+
 @media (prefers-color-scheme: dark) {
     :root {
         --main-color: #008080;

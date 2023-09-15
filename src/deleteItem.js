@@ -1,10 +1,11 @@
 import { db } from "./db";
-import { list } from "./common";
+import { $, list } from "./common";
 import displayData from "./displayData";
 import { strings } from "./strings";
 
 export default function deleteItem(e) {
-    const noteId = Number(e.target.parentNode.id);
+    const noteId = Number(sessionStorage.getItem("noteId"));
+    sessionStorage.removeItem("noteId");
     const transaction = db.transaction(["notes_os"], "readwrite");
     const objectStore = transaction.objectStore("notes_os");
     objectStore.delete(noteId);
@@ -19,4 +20,11 @@ export default function deleteItem(e) {
         }
         displayData();
     };
+}
+
+export function showModal(e) {
+    $("#modal-delete").onclick = () => deleteItem(e);
+    const noteId = Number(e.target.parentNode.id);
+    sessionStorage.setItem("noteId", noteId);
+    $("#modal").showModal();
 }
