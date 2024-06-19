@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link href="style.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1 id="app-name"></h1>
+    </header>
+    <footer>
+        <a id="download-link" href="#"></a>
+        <a id="upload-link" href="#"></a>
+    </footer>
+    <main>
+        <section class="new-note">
+            <form id="new-note-form">
+                <input id="title-input" class="title-input" type="text">
+                <textarea rows="4" id="body-input" class="body-input"
+                    oninput="this.style.height='';this.style.height=this.scrollHeight+'px'"></textarea>
+                <button id="save-button" class="save-button">Save</button>
+            </form>
+        </section>
+        <section class="note-display">
+            <ul id="notes-list"></ul>
+        </section>
+        <dialog id="modal">
+            <form method="dialog">
+                <p id="are-you-sure"></p>
+                <button>cancel</button>
+                <button id="modal-delete">delete</button>
+            </form>
+        </dialog>
+    </main>
+    <script src="dist/main.js"></script>
+</body>
+</html>
