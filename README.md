@@ -4,8 +4,8 @@ An in-browser, frontend-only, plaintext notebook using the IndexedDB API. Persis
 
 ## Build Requirements
 
--   NodeJS
--   NPM
+- NodeJS
+- NPM
 
 ## Usage
 
