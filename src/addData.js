@@ -1,3 +1,6 @@
+/**
+ * Copyright (c) 2024 Craig Wilson <wilsocr88@gmail.com>
+ */
 import { db } from "./db";
 import { titleInput, bodyInput } from "./common";
 import displayData from "./displayData";

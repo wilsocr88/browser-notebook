@@ -1,3 +1,6 @@
+/**
+ * Copyright (c) 2024 Craig Wilson <wilsocr88@gmail.com>
+ */
 export const strings = {
     appName: "Notebook",
     titlePlaceholder: "Title (optional)",

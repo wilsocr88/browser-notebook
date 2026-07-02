@@ -1,3 +1,6 @@
+/**
+ * Copyright (c) 2024 Craig Wilson <wilsocr88@gmail.com>
+ */
 import displayData from "./displayData";
 
 export var db;

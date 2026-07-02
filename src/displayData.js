@@ -1,3 +1,6 @@
+/**
+ * Copyright (c) 2024 Craig Wilson <wilsocr88@gmail.com>
+ */
 import { db } from "./db";
 import { $, list } from "./common";
 import deleteItem, { showModal } from "./deleteItem";
@@ -112,13 +115,13 @@ export default function displayData() {
                         f.createWritable().then(async w => {
                             await w.write(dataString);
                             await w.close();
-                        })
+                        }),
                     );
             } else {
                 $("#download-link").onclick = () =>
                     download(
                         "data:application/json," + dataString,
-                        "notes.json"
+                        "notes.json",
                     );
             }
         } else {
