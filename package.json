@@ -9,8 +9,7 @@
     "preview": "vite preview"
   },
   "author": "Craig Wilson <wilsocr88@gmail.com>",
-  "license": "UNLICENSED",
-  "private": "true",
+  "license": "MIT",
   "devDependencies": {
     "vite": "^8.1.3"
   }
