@@ -9,12 +9,18 @@ An in-browser, frontend-only, plaintext notebook using the IndexedDB API. Persis
 
 ## Usage
 
-Install build dependencies
-`npm install --only=dev`
+Install dependencies
+`npm install`
 
-Build
-`npx webpack`
-or
+Start the dev server
+`npm run dev`
+
+Vite will open the browser automatically.
+
+Build for production
 `npm run build`
 
-Then open `index.html`
+Preview the production build
+`npm run preview`
+
+Open the local dev server URL printed by Vite.
